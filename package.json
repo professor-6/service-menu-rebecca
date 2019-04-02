@@ -1,0 +1,20 @@
+{
+  "name": "fec_menu_service",
+  "version": "1.0.0",
+  "description": "menu module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed-data": "node database/seed.js",
+    "server": "nodemon server/server.js"
+  },
+  "author": "rebecca",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "faker": "^4.1.0",
+    "mongoose": "^5.4.20",
+    "nodemon": "^1.18.10"
+  }
+}
