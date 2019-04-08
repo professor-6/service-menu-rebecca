@@ -7,7 +7,7 @@ function menuData () {
 
 		{menuId: i,
 
-		Breaskfast:  [{itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
+		Breakfast:  		 [{itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
 					  		  {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
 					  		  {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
 					  		  {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
@@ -15,9 +15,9 @@ function menuData () {
 					  		  {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
 					  		  {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
 					  		  {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
-			          	{itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()}],
+			          	      {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()}],
 
-		Lunch: 	     [{itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
+		Lunch: 	             [{itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
 					  		  {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
 					  		  {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
 					  		  {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
@@ -36,11 +36,11 @@ function menuData () {
 					  		  {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
 					  		  {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
 					  		  {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
-			          	{itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()}],
+			          	      {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()}],
 
-		Dinner:      [{itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
-				          {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
-				          {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
+		Dinner:              [{itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
+				              {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
+				              {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
 					  		  {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
 					  		  {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
 					  		  {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
@@ -53,20 +53,20 @@ function menuData () {
 					  		  {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
 					  		  {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
 					  		  {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
-			          	{itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()}],
+			          	      {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()}],
 
-		Business:    [{itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
-				          {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
-				          {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
-				          {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
-				          {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()}],
+		Business:            [{itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
+				              {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
+				              {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
+				              {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
+				              {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()}],
 
-		HappyHour:   [{itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
-				          {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
-				          {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
-				          {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
-				          {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
-				          {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()}]
+		HappyHour:          [{itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
+				             {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
+				             {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
+				             {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
+				             {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()},
+				             {itemName: faker.lorem.word(), itemDescription: faker.lorem.paragraph(), itemPrice: '$' + faker.commerce.price()}]
 		            }
 								allMenus.push(menu);
 	}

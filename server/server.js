@@ -3,12 +3,14 @@ const app = express();
 const bodyParser = require('body-parser');
 const jsonParse = bodyParser.json();
 //const cors = require('cors');
+const path = require('path');
 const port = process.env.PORT || 5000;
 const db = require('../database/index.js');
 const Menu = require('../database/schema.js');
 
 //app.use(cors());
 
+app.use(express.static(path.join(__dirname, '/../public/')));
 
 //will pull all the data from database:
 
@@ -20,6 +22,10 @@ app.get('/menus', function (req, res) {
       res.status(500).send(err);
     });
 });
+
+  // app.get('*', (req, res) => {
+  //   res.sendFile(path.join(__dirname, '/../public/index.html'));
+  // })
 
 //pulls 1 menu per id provided in Url:
 
