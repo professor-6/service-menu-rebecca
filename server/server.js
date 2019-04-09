@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const jsonParse = bodyParser.json();
 //const cors = require('cors');
 const path = require('path');
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3004;
 const db = require('../database/index.js');
 const Menu = require('../database/schema.js');
 

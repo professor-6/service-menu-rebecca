@@ -7,35 +7,37 @@ import axios from 'axios';
 // import { Route, Switch } from 'react-router-dom';
 
 
+
 class Menu extends Component {
   constructor (props) {
     super(props);
 
       this.state = {
          menu: [],
-         collapse: false
-         
-     
+         collapse: false,
+         UrlId: window.location.pathname.slice(1)       
       }
       this.getMenus = this.getMenus.bind(this);
-      this.toggle = this.toggle.bind(this);
+      this.toggle = this.toggle.bind(this);     
   } 
+
 toggle() {
   this.setState(state => ({ collapse: !state.collapse }));
   console.log(this.state)
 }
 
 componentDidMount () {
-	axios.get('http://localhost:5000/menus/1').then(res => { console.log(res.data); 
+
+	axios.get('http://localhost:3004/menus/1').then(res => { console.log(res.data); 
     this.setState({menu: res.data[0].Breakfast})});
 }
  
 getMenus (menutype) {
- axios.get('http://localhost:5000/menus/1').then(res => { console.log(res.data); 
+ axios.get('http://localhost:3004/menus/1').then(res => { console.log(res.data); 
     this.setState({menu: res.data[0][menutype]})
   });
 }
-  	//this.componentDidMount();
+//   	//this.componentDidMount();
     //<Collapse isOpened={this.state.collapse}>
     //</Collapse> 
 
