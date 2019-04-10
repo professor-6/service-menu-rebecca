@@ -9,11 +9,10 @@ const db = require("../database/index.js");
 const Menu = require("../database/schema.js");
 
 //app.use(cors());
-app.use(express.static(path.join(__dirname, "/../public/")));
 
-// app.get('/*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '/../public/index.html'));
-// })
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(path.join(__dirname, "/../public/")));
 
 //will pull all the data from database:
 app.get("/menus", function(req, res) {
@@ -38,6 +37,7 @@ app.get("/menus/:Id", (req, res) => {
 app.get("/:Id", (req, res) => {
   res.sendFile(path.join(__dirname, "/../public/index.html"));
 });
+
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);

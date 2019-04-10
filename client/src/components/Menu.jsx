@@ -37,7 +37,7 @@ class Menu extends Component {
       this.setState({ menu: res.data[0][menutype] });
     });
   }
-  //   	//this.componentDidMount();
+  //this.componentDidMount();
   //<Collapse isOpened={this.state.collapse}>
   //</Collapse>
 
