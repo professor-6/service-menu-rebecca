@@ -1,32 +1,28 @@
-const mongoose = require ('mongoose');
-
+const mongoose = require("mongoose");
 
 const itemSchema = mongoose.Schema({
-	itemName: String, 
-	itemDescription: String, 
-	itemPrice: String
+  itemName: String,
+  itemDescription: String,
+  itemPrice: String
 });
 
 const menuSchema = mongoose.Schema({
+  menuId: {
+    type: Number,
+    unique: true
+  },
 
-menuId: {
-	type: Number,
-	unique: true
-},
+  Breakfast: [itemSchema],
 
-Breakfast: [itemSchema],
+  Lunch: [itemSchema],
 
-Lunch: [itemSchema],
+  Dinner: [itemSchema],
 
-Dinner: [itemSchema],  
+  Business: [itemSchema],
 
-Business: [itemSchema],  
-
-HappyHour: [itemSchema]
-
+  HappyHour: [itemSchema]
 });
 
-
-const Menu = mongoose.model('Menu', menuSchema);
+const Menu = mongoose.model("Menu", menuSchema);
 
 module.exports = Menu;

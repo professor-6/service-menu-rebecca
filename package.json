@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "seed-data": "node database/seed.js",
-    "start": "nodemon server/server.js",
-    "build": "webpack -d --watch",
-    "build-mode": "webpack --mode production",
+    "server": "nodemon server/server.js",
+    "react:dev": "webpack -d --watch",
+    "build": "webpack --mode production",
     "test": "jest"
   },
   "author": "rebecca",
