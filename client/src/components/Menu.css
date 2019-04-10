@@ -7,13 +7,13 @@ font-family: 'Josefin Sans', sans-serif;
 font-weight: bold;
 }
 
-.menu-box {
+.menuBox {
 position: relative;
 width: 608px;
 height: 713px;
 }
 
-.buttons-box {
+.buttonsBox {
 z-index: 100;
 width: 608px;
 height: 127px;
@@ -22,7 +22,7 @@ border-bottom: 1px solid #d2d8e0;
 align-items: left;
 }
 
-.nav-button {
+.navButton {
 height: 38px;
 max-width: 130px;
 text-align: center;
@@ -38,14 +38,14 @@ padding-right: 17px;
 padding-top: 2px;
 }
 
-.nav-button:active, 
-.nav-button:focus {
+.navButton:active, 
+.navButton:focus {
  border:2px solid #c9022d; 
 }
 
 button:focus { outline:0 !important; }
 
-.item-name {
+.itemName {
 font-family: 'Josefin Sans', sans-serif;
 font-size: 15px;
 font-weight: 400;
@@ -54,10 +54,10 @@ display: inline-block;
 width: 153px;
 margin-bottom: auto;
 }
-.item-name:first-letter {
+.itemName:first-letter {
     text-transform:capitalize;
 }
-.item-price {
+.itemPrice {
 font-family: 'Josefin Sans', sans-serif;
 font-size: 15px;
 font-weight: 400;
@@ -69,7 +69,7 @@ width: 123px;
 margin-bottom: auto;
 }
 
-.item-description {
+.itemDescription {
 font-family: 'Josefin Sans', sans-serif;
 font-size: 16px;
 padding-right: 30px;
@@ -77,14 +77,14 @@ margin-top: 10px;
 font-weight: 300;
 }
 
-.all-items {
+.allItems {
 	max-width: 608px;
 	display: flex;
 	justify-content: flex-start;
 	flex-wrap: wrap;
 }
 
-.all-items-collapsed {
+.allItemsCollapsed {
 	height: 482px;
 	max-width: 608px;
 	overflow: hidden;
@@ -98,13 +98,13 @@ font-weight: 300;
 }
 
 
-.item-container {
+.itemContainer {
 	width: 302px;
 	height: 240px;
 	border-bottom: 1px solid #d2d8e0;
 }
 
-.toggle-menu {
+.toggleMenu {
     position: fixed;
     left: 383px;
     height: 50px;
@@ -120,7 +120,7 @@ font-weight: 300;
 	background-color: white;
 }
 
-.toggle-menu-full {
+.toggleMenuFull {
     position: fixed;
     left: 383px;
     height: 50px;
@@ -137,7 +137,7 @@ font-weight: 300;
 	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.toggle-menu:hover {
+.toggleMenu:hover {
  border:2px solid #c9022d; 
 }
 

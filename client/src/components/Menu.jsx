@@ -5,6 +5,7 @@ import ReactDOM from "react-dom";
 //import {Collapse} from 'react-collapse';
 import axios from "axios";
 // import { Route, Switch } from 'react-router-dom';
+import classes from "./Menu.css";
 
 class Menu extends Component {
   constructor(props) {
@@ -21,19 +22,19 @@ class Menu extends Component {
 
   toggle() {
     this.setState(state => ({ collapse: !state.collapse }));
-    console.log(this.state);
+    //console.log(this.state);
   }
 
   componentDidMount() {
     axios.get(`http://localhost:3004/menus/${this.state.UrlId}`).then(res => {
-      console.log(res.data);
+      //console.log(res.data);
       this.setState({ menu: res.data[0].Breakfast });
     });
   }
 
   getMenus(menutype) {
     axios.get(`http://localhost:3004/menus/${this.state.UrlId}`).then(res => {
-      console.log(res.data);
+      //console.log(res.data);
       this.setState({ menu: res.data[0][menutype] });
     });
   }
@@ -43,11 +44,11 @@ class Menu extends Component {
 
   render() {
     return (
-      <div className="menu-box" data-test="menu">
+      <div className={classes.menubox} data-test="menu">
         <h3>Menu</h3>
-        <div className="buttons-box" data-test="nav-bar">
+        <div className={classes.buttonsBox} data-test="nav-bar">
           <button
-            className="nav-button"
+            className={classes.navButton}
             onClick={() => {
               this.getMenus("Breakfast");
             }}
@@ -55,7 +56,7 @@ class Menu extends Component {
             Breakfast
           </button>
           <button
-            className="nav-button"
+            className={classes.navButton}
             onClick={() => {
               this.getMenus("Lunch");
             }}
@@ -63,7 +64,7 @@ class Menu extends Component {
             Lunch
           </button>
           <button
-            className="nav-button"
+            className={classes.navButton}
             onClick={() => {
               this.getMenus("Dinner");
             }}
@@ -71,7 +72,7 @@ class Menu extends Component {
             Dinner
           </button>
           <button
-            className="nav-button"
+            className={classes.navButton}
             onClick={() => {
               this.getMenus("Business");
             }}
@@ -79,7 +80,7 @@ class Menu extends Component {
             Business
           </button>
           <button
-            className="nav-button"
+            className={classes.navButton}
             onClick={() => {
               this.getMenus("HappyHour");
             }}
@@ -87,7 +88,7 @@ class Menu extends Component {
             Happy Hour
           </button>
           <button
-            className="nav-button"
+            className={classes.navButton}
             onClick={() => {
               this.getMenus("Lunch");
             }}
@@ -95,7 +96,7 @@ class Menu extends Component {
             Dessert Menu
           </button>
           <button
-            className="nav-button"
+            className={classes.navButton}
             onClick={() => {
               this.getMenus("Dinner");
             }}
@@ -104,7 +105,7 @@ class Menu extends Component {
           </button>
         </div>
         <button
-          className={this.state.collapse ? "toggle-menu-full" : "toggle-menu"}
+          className={this.state.collapse ? classes.toggleMenuFull : classes.toggleMenu}
           onClick={() => {
             this.toggle();
           }}
@@ -112,14 +113,14 @@ class Menu extends Component {
           {this.state.collapse ? "Collapse menu" : "View full menu"}
         </button>
         <div
-          className={this.state.collapse ? "all-items" : "all-items-collapsed"}
+          className={this.state.collapse ? classes.allItems : classes.allItemsCollapsed}
           data-test="menu-items"
         >
           {this.state.menu.map(item => (
-            <div className="item-container" key={item._id}>
-              <p className="item-name">{item.itemName}</p>
-              <p className="item-price">{item.itemPrice}</p>
-              <p className="item-description">{item.itemDescription}</p>
+            <div className={classes.itemContainer} key={item._id}>
+              <p className={classes.itemName}>{item.itemName}</p>
+              <p className={classes.itemPrice}>{item.itemPrice}</p>
+              <p className={classes.itemDescription}>{item.itemDescription}</p>
             </div>
           ))}
         </div>
