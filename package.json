@@ -4,7 +4,7 @@
   "description": "menu module",
   "main": "index.js",
   "scripts": {
-    "seed-data": "node database/seed.js",
+    "seed": "node database/seed.js",
     "start": "nodemon server/server.js",
     "build": "webpack -d --watch",
     "build-mode": "webpack --mode production",
