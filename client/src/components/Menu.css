@@ -1,6 +1,3 @@
-#menu{
-margin-left: 230px;
-}
 
 h3 {
 font-family: 'Josefin Sans', sans-serif;
@@ -92,9 +89,9 @@ font-weight: 300;
 	justify-content: flex-start;
 	flex-wrap: wrap;
 	background-image: -webkit-gradient(
-  linear, left top, left bottom, from(rgba(50,50,50,0.5)),
-  to(rgba(0,0,0,0)), color-stop(.4, #fffff)
-);
+    linear, left top, left bottom, from(rgba(50,50,50,0.5)),
+    to(rgba(0,0,0,0)), color-stop(.4, #fffff)
+    );
 }
 
 
@@ -105,12 +102,12 @@ font-weight: 300;
 }
 
 .toggleMenu {
-    position: fixed;
+    position: absolute;
     left: 383px;
     height: 50px;
     width: 287px;
     z-index: 100;
-    bottom: 34px;
+    top: 1100px;
     text-align: center;
 	font-family: 'Josefin Sans', sans-serif;
 	font-weight: bold;
@@ -121,12 +118,12 @@ font-weight: 300;
 }
 
 .toggleMenuFull {
-    position: fixed;
+    position: sticky;
     left: 383px;
     height: 50px;
     width: 287px;
     z-index: 100;
-    bottom: 34px;
+    top: 630px;
     text-align: center;
 	font-family: 'Josefin Sans', sans-serif;
 	font-weight: bold;
@@ -140,4 +137,3 @@ font-weight: 300;
 .toggleMenu:hover {
  border:2px solid #c9022d; 
 }
-

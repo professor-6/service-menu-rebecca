@@ -2,13 +2,13 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const jsonParse = bodyParser.json();
-//const cors = require('cors');
+const cors = require('cors');
 const path = require("path");
 const port = process.env.PORT || 3004;
 const db = require("../database/index.js");
 const Menu = require("../database/schema.js");
 
-//app.use(cors());
+app.use(cors());
 //app.use(express.static(path.join(__dirname, "/../public/")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
