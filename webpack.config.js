@@ -17,22 +17,20 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          require.resolve('style-loader'),
+          require.resolve("style-loader"),
           {
-            loader: require.resolve('css-loader'),
+            loader: require.resolve("css-loader"),
             options: {
               importLoaders: 1,
               modules: true,
-              localIndentName: '[name]__[local]__[hash:base64:5]'
+              localIndentName: "[name]__[local]__[hash:base64:5]"
             }
           }
         ]
       }
-
     ]
   },
   resolve: {
     extensions: [".js", ".jsx", ".css"]
   }
 };
-

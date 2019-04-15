@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-//import { Transition } from 'react-transition-group';
-//import { Collapse, Button, CardBody, Card } from 'reactstrap';
-//import {Collapse} from 'react-collapse';
 import axios from "axios";
-// import { Route, Switch } from 'react-router-dom';
 import classes from "./Menu.css";
 
 class Menu extends Component {
@@ -22,25 +18,19 @@ class Menu extends Component {
 
   toggle() {
     this.setState(state => ({ collapse: !state.collapse }));
-    //console.log(this.state);
   }
 
   componentDidMount() {
     axios.get(`http://localhost:3004/menus/${this.state.UrlId}`).then(res => {
-      //console.log(res.data);
       this.setState({ menu: res.data[0].Breakfast });
     });
   }
 
   getMenus(menutype) {
     axios.get(`http://localhost:3004/menus/${this.state.UrlId}`).then(res => {
-      //console.log(res.data);
       this.setState({ menu: res.data[0][menutype] });
     });
   }
-  //this.componentDidMount();
-  //<Collapse isOpened={this.state.collapse}>
-  //</Collapse>
 
   render() {
     return (
@@ -49,6 +39,7 @@ class Menu extends Component {
         <div className={classes.buttonsBox} data-test="nav-bar">
           <button
             className={classes.navButton}
+            data-test="nav-button"
             onClick={() => {
               this.getMenus("Breakfast");
             }}
@@ -57,6 +48,7 @@ class Menu extends Component {
           </button>
           <button
             className={classes.navButton}
+            data-test="nav-button"
             onClick={() => {
               this.getMenus("Lunch");
             }}
@@ -65,6 +57,7 @@ class Menu extends Component {
           </button>
           <button
             className={classes.navButton}
+            data-test="nav-button"
             onClick={() => {
               this.getMenus("Dinner");
             }}
@@ -73,6 +66,7 @@ class Menu extends Component {
           </button>
           <button
             className={classes.navButton}
+            data-test="nav-button"
             onClick={() => {
               this.getMenus("Business");
             }}
@@ -81,6 +75,7 @@ class Menu extends Component {
           </button>
           <button
             className={classes.navButton}
+            data-test="nav-button"
             onClick={() => {
               this.getMenus("HappyHour");
             }}
@@ -89,6 +84,7 @@ class Menu extends Component {
           </button>
           <button
             className={classes.navButton}
+            data-test="nav-button"
             onClick={() => {
               this.getMenus("Lunch");
             }}
@@ -97,6 +93,7 @@ class Menu extends Component {
           </button>
           <button
             className={classes.navButton}
+            data-test="nav-button"
             onClick={() => {
               this.getMenus("Dinner");
             }}
@@ -105,7 +102,9 @@ class Menu extends Component {
           </button>
         </div>
         <button
-          className={this.state.collapse ? classes.toggleMenuFull : classes.toggleMenu}
+          className={
+            this.state.collapse ? classes.toggleMenuFull : classes.toggleMenu
+          }
           onClick={() => {
             this.toggle();
           }}
@@ -113,7 +112,9 @@ class Menu extends Component {
           {this.state.collapse ? "Collapse menu" : "View full menu"}
         </button>
         <div
-          className={this.state.collapse ? classes.allItems : classes.allItemsCollapsed}
+          className={
+            this.state.collapse ? classes.allItems : classes.allItemsCollapsed
+          }
           data-test="menu-items"
         >
           {this.state.menu.map(item => (
