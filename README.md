@@ -8,11 +8,12 @@
 
 
 __Cassandra Keyspace:__
-| rowKey            | Meal Category Super Column    |
-| :-------------:   |:-----------------------------:|
-| 0                 |  map <  category_id, map < meal_id, map < text,text> >|
-| 1                 |  map <  category_id, map < meal_id, map < text,text> >|
-| 10,000,000        |  map <  category_id, map < meal_id, map < text,text> > |
+
+| rowKey            | Meal Category Super Column                              |
+| :----------------:|:-------------------------------------------------------:|
+| 0                 |  map <  category_id, map < meal_id, map < text,text> >  |
+| 1                 |  map <  category_id, map < meal_id, map < text,text> >  |
+| 10,000,000        |  map <  category_id, map < meal_id, map < text,text> >  |
 
 
 Sub-Column-Map-tier-1 :
@@ -60,7 +61,3 @@ Meals Table:
 | DELETE | /menus/remove-menu-item/:id | remove record from database | {menu: 'Breakfast', key: 'Salad'}
 
 
-
-
-
-  2) Cassandra
