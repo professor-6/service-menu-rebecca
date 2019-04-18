@@ -14,16 +14,19 @@ __Cassandra Keyspace:__
 | 0                 |  map <  category_id, map < meal_id, map < text,text> >  |
 | 1                 |  map <  category_id, map < meal_id, map < text,text> >  |
 | 10,000,000        |  map <  category_id, map < meal_id, map < text,text> >  |
+
 | Category ID               |    Category Menu              |
 | :------------------------:|:-----------------------------:|
 | 0                         |   map < meals_id, text >      |
 | 1                         |   map < meals_id, text >      |
 | 4 (max)                   |   map < meals_id, text >      |
+
 | Meal list                 |       Meal            |
 | :------------------------:|:---------------------:|
 | 0                         |   map < text, text >  |
 | 1                         |   map < text, text >  |
 | 10(max)                   |   map < text, text >  |
+
 |     MealKey                 |        Value                    |
 |:---------------------------:|:-------------------------------:|
 |        Item                 |   text                          |
@@ -32,11 +35,10 @@ __Cassandra Keyspace:__
 
 
 __PostgreSQL Schema:__
-Meal_Category Table:
+
 | ID     | Category |
 |:------:|:--------:|
 
-Meals Table:
 | ID   | Meal Collection (JSON Array ) | Catergory(referencing Meal_Category ID )|
 |:----:|:-----------------------------:|:---------------------------------------:|
 
