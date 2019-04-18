@@ -14,25 +14,16 @@ __Cassandra Keyspace:__
 | 0                 |  map <  category_id, map < meal_id, map < text,text> >  |
 | 1                 |  map <  category_id, map < meal_id, map < text,text> >  |
 | 10,000,000        |  map <  category_id, map < meal_id, map < text,text> >  |
-
-
-Sub-Column-Map-tier-1 :
 | Category ID               |    Category Menu              |
 | :------------------------:|:-----------------------------:|
 | 0                         |   map < meals_id, text >      |
 | 1                         |   map < meals_id, text >      |
 | 4 (max)                   |   map < meals_id, text >      |
-
-
-Sub-Column-Map-tier-2 :
 | Meal list                 |       Meal            |
 | :------------------------:|:---------------------:|
 | 0                         |   map < text, text >  |
 | 1                         |   map < text, text >  |
 | 10(max)                   |   map < text, text >  |
-
-
-Sub-Column-Map-tier-3 (i.e. Item) :
 |     MealKey                 |        Value                    |
 |:---------------------------:|:-------------------------------:|
 |        Item                 |   text                          |
