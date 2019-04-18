@@ -17,34 +17,37 @@ __Cassandra Keyspace:__
 
 
 Sub-Column-Map-tier-1 :
-| Category ID               |    Category Menu        |
-| :-------------:   |:-----------------------------:|
-| 0                         |   map< meals_id, text>    |
-| 1                         |   map< meals_id, text>    |
-| 4 (max)                   |   map< meals_id, text>    |
+| Category ID               |    Category Menu              |
+| :------------------------:|:-----------------------------:|
+| 0                         |   map < meals_id, text >      |
+| 1                         |   map < meals_id, text >      |
+| 4 (max)                   |   map < meals_id, text >      |
+
 
 Sub-Column-Map-tier-2 :
-| Meal list                 |       Meal          |
-| :-------------:   |:-----------------------------:|
-| 0                         |   map< text, text>    |
-| 1                         |   map< text, text>    |
-| 10(max)                   |   map< text, text>    |
+| Meal list                 |       Meal            |
+| :------------------------:|:---------------------:|
+| 0                         |   map < text, text >  |
+| 1                         |   map < text, text >  |
+| 10(max)                   |   map < text, text >  |
+
 
 Sub-Column-Map-tier-3 (i.e. Item) :
-|     MealKey        |        Value            |
-| :-------------:   |:-----------------------------:|
-|        Item                |   text    |
-|       Description          |   text    |
-|        Price               |   text    |
+|     MealKey                 |        Value                    |
+|:---------------------------:|:-------------------------------:|
+|        Item                 |   text                          |
+|       Description           |   text                          |
+|        Price                |   text                          |
+
 
 __PostgreSQL Schema:__
 Meal_Category Table:
-| ID | Category |
-| :------: |:------:|
+| ID     | Category |
+|:------:|:--------:|
 
 Meals Table:
-| ID | Meal Collection (JSON Array ) | Catergory(referencing Meal_Category ID )|
-| :--: |:--------------:|:-------------------:|
+| ID   | Meal Collection (JSON Array ) | Catergory(referencing Meal_Category ID )|
+|:----:|:-----------------------------:|:---------------------------------------:|
 
 
 
