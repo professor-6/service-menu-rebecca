@@ -6,7 +6,9 @@ const cors = require("cors");
 const path = require("path");
 const port = process.env.PORT || 3004;
 const db = require("../database/index.js");
+const postgres = require('../database/bigMenuData-database.js');
 const Menu = require("../database/schema.js");
+ const seedGen =  require('../database/bigMenuData.js');
 
 app.use(cors());
 
