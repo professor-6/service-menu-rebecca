@@ -7,24 +7,24 @@
 
 //POSTGRES
 const { Client } = require('pg');
-const client = new Client({
+const psqlClient = new Client({
   database: 'test',
-})
-client.connect()
+});
+psqlClient.connect()
 
  const genCategoryTableQuery = ''+
  'CREATE TABLE IF NOT EXISTS' + ' ' +
  'categories (id  SERIAL PRIMARY KEY, occasion VARCHAR(40) NOT NULL )'+ ' '
 
- client.query(genCategoryTableQuery)
+ psqlClient.query(genCategoryTableQuery)
    .then(res => console.log())
    .catch(e => console.log(e.stack))
 
 
  const genMealSelectionTableQuery = ''+
  'CREATE TABLE IF NOT EXISTS' + ' ' +
- 'menu_selection( id SERIAL PRIMARY KEY, BREAKFAST text NOT NULL, LUNCH text NOT NULL, DINNER text NOT NULL, BRUNCH text NOT NULL, HAPPYHOUR text NOT NULL, category_id integer references categories )';
- client.query(genMealSelectionTableQuery)
+ 'menu_selection( id integer PRIMARY KEY,  BREAKFAST text NOT NULL, LUNCH text NOT NULL, DINNER text NOT NULL, BRUNCH text NOT NULL, HAPPYHOUR text NOT NULL, category_id integer references categories )';
+ psqlClient.query(genMealSelectionTableQuery)
    .then(res => console.log())
    .catch(e => console.log(e.stack))
 
@@ -37,22 +37,44 @@ client.connect()
   `  SELECT ('BRUNCH')  WHERE NOT EXISTS (SELECT * FROM categories) UNION ALL`+
   `  SELECT ('HAPPYHOUR')  WHERE NOT EXISTS (SELECT * FROM categories)`
 
-client.query(initCategoryList)
-.then(res => console.log())
-.catch(e => console.log(e.stack))
+psqlClient.query(initCategoryList)
+  .then(res => console.log())
+  .catch(e => console.log(e.stack))
+  exports.postgres = {
+    psqlClient
+  }
+// CASSANDRA
+// const  Cassandra = require('cassandra-driver');
+// const cassClient = new Cassandra.Client({contactPoints: ['127.0.0.1'], localDataCenter: 'datacenter1'});
+
+// cassClient.connect(function (err) {
+//   if (err) return console.error(err);
+//   console.log('Connected to cluster with %d host(s): %j', cassClient.hosts.length, cassClient.hosts.keys());
+// });
 
 
-//CASSANDRA
-// // const  Cassandra = require('cassandra-driver');
-// // const cluster = new Cassandra.Client({contactPoints: ['127.0.0.1'], localDataCenter: 'datacenter1'});
+// const replication = {
+//   class: 'SimpleStrategy',
+//   replication_factor: 1,
+// };
 
-// // cluster.connect(function (err) {
-// //   if (err) return console.error(err);
-// //   console.log('Connected to cluster with %d host(s): %j', client.hosts.length, client.hosts.keys());
-// // });
+// const keyspaceGeneration = '' +
+// `CREATE KEYSPACE IF NOT EXISTS sdc WITH REPLICATION = {'class': 'SimpleStrategy', 'replication_factor' : 1}`
 
+//   cassClient.execute(keyspaceGeneration)
+//   .then( result =>{ console.log('keyspace sdc created')})
+//   .catch(e => {console.log(e)})
 
-
-exports.postgres = {
-  client
-}
+// const tableGeneration = `` +
+// `CREATE TABLE IF NOT EXISTS  sdc.menu_selection(` +
+//   `id int,`+
+//   `BREAKFAST text,`+
+//   `LUNCH text,`+
+//   `DINNER text,`+
+//   `BRUNCH text,`+
+//   `HAPPYHOUR text` +
+//   `PRIMARY KEY(id))`+
+// `WITH CLUSTERING ORDER BY (id DESC)`
+// exports.Cassandra = {
+//   cassClient
+// }
