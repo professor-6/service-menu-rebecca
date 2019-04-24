@@ -5,12 +5,6 @@ var psqlCommands =  function (){
   this.pathCSVTest = path.resolve(__dirname, '..', 'TESTDATA')
 }
 
-// psqlCommands.prototype.delete  = function() {
-//   postgres.psqlClient.query(`DROP DATABASE test`)
-//   .then( ()=>{ console.log('seeded first block')})
-//   .catch(e=> console.log())
-// }
-
 psqlCommands.prototype.entries_1_00_000 = function(fileNumber, callback) {
   postgres.psqlClient.query(`COPY menu_selection (id,BREAKFAST,LUNCH,DINNER,BRUNCH,HAPPYHOUR) FROM '${this.pathCSVTest}/data${fileNumber}.csv'  WITH DELIMITER ',' CSV HEADER`)
   .then( ()=>{
@@ -33,14 +27,7 @@ psqlCommands.prototype.writeAll = function(count=0) {
   });
 }
 
-// psqlCommands.prototype.router = function (count=0) {
-//   this.prototype
-
-
-// };
-
 var ops = new psqlCommands();
 // ops.entries_1_00_000();
 // ops.delete()
 // ops.writeAll( )
-// (`COPY menu_selection (id,BREAKFAST,LUNCH,DINNER,BRUNCH,HAPPYHOUR) FROM ' FILENAME.csv'  WITH DELIMITER ',' CSV HEADER`)

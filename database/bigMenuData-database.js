@@ -2,7 +2,7 @@ var {postgres} = require('./index');
 var path = require('path');
 
 var psqlCommands =  function (){
-  this.pathCSVTest = path.resolve(__dirname, '..', 'test')
+  this.pathCSVTest = path.resolve(__dirname, '..', 'TESTDATA')
 }
 
 
@@ -43,4 +43,4 @@ psqlCommands.prototype.router = function (count=0) {
 var ops = new psqlCommands();
 // ops.entries_1_00_000();
 // ops.delete()
-ops.writeAll( )
+// ops.writeAll( )

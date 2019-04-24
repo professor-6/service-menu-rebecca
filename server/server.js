@@ -6,12 +6,12 @@ const cors = require("cors");
 const path = require("path");
 const port = process.env.PORT || 3004;
 const db = require("../database/index.js");
-const postgres = require('../database/bigMenuData-database.js');
+const postgres = require('../database/bigMenuData-database-pg.js');
+const cassandra = require('../database/bigMenuData-database-cass.js');
+const seedGen =  require('../database/bigMenuData.js');
 const Menu = require("../database/schema.js");
- const seedGen =  require('../database/bigMenuData.js');
 
 app.use(cors());
-
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   next();
