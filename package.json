@@ -8,6 +8,7 @@
     "start": "nodemon --ignore /TESTDATA  --max-old-space-size=16384 server/server.js",
     "build": "webpack -d --watch",
     "build-mode": "webpack --mode production",
+    "postgres-load" : "node database/sdc-scripts.js 1",
     "test": "jest"
   },
   "author": "rebecca",
@@ -24,6 +25,7 @@
     "identity-obj-proxy": "^3.0.0",
     "mongoose": "^5.4.20",
     "nodemon": "^1.18.10",
+    "promise": "^8.0.3",
     "react": "^16.8.6",
     "react-collapse": "^4.0.3",
     "react-dom": "^16.8.6",

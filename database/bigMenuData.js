@@ -1,6 +1,7 @@
 const fs = require('file-system');
 const path = require('path');
 const sim  = require('./pre-process-faker').fakerBuild();
+var counter = 0;
 
 var generateMenuObject_100000_helper = function() {
   var result = {};
@@ -14,14 +15,14 @@ var generateMenuObject_100000_helper = function() {
   result['2'] =  sim.word[idx2] +'-link-'  + sim.paragraph[idx2]+'-link-'+ sim.price[idx2]
   result['3'] = sim.word[idx3] +'-link-'  + sim.paragraph[idx3]+'-link-'+ sim.price[idx3]
   result['4'] = sim.word[idx4] +'-link-'  + sim.paragraph[idx4]+'-link-'+ sim.price[idx4]
-  return result[0] + ',' + result[1]  +', '+ result[2] + ','  + result[3] + ','  + result[4] ;
+  return counter++ + ',' + result[0] + ',' + result[1]  +', '+ result[2] + ','  + result[3] + ','  + result[4] + '\n';
 };
 
 var generateMenuObject_100000 = function(max, file, callback) {
-  for (var r = 0; r < max; r++) {
-    var result = generateMenuObject_100000_helper() + '\n';
+  for (var r = 0; r <= max; r++) {
+    var result = generateMenuObject_100000_helper() ;
     if(r==0) {
-      fs.appendFileSync (file, "BREAKFAST, LUNCH, DINNER, BRUNCH,HAPPYHOUR\n", {option:{flags:'a+'}})
+      fs.appendFileSync (file, "id, BREAKFAST, LUNCH, DINNER, BRUNCH, HAPPYHOUR\n", {option:{flags:'a+'}})
     }else {
       fs.appendFileSync(file, result, {option:{flags:'a+'}})
     }
@@ -30,7 +31,7 @@ var generateMenuObject_100000 = function(max, file, callback) {
 };
 
 var generateBlock = function ( records,fileNumber, callback) {
-  var file = path.resolve('test' , 'data' + fileNumber + '.csv' );
+  var file = path.resolve('test2' , 'data' + fileNumber + '.csv' );
   generateMenuObject_100000(records, file, (res)=>{
     callback(res);
   });
