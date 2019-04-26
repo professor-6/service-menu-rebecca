@@ -1,6 +1,10 @@
 
 # __CRUD API__
 
+
+## Data Simulation Generation & Database Load Script Commands
+  npm run csv-load  : generates 10 million records to directory named TESTDATA
+  npm run postgres-load : copies csv data to postgres
 ## __Schema__:
 
 __Cassandra && PostgreSQL Tables:__
