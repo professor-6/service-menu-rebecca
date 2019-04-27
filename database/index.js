@@ -9,7 +9,7 @@ psqlClient.connect((err, msg)=>{
   'CREATE TABLE IF NOT EXISTS' + ' ' +
   'menu_selection( id int  NOT NULL, BREAKFAST text NOT NULL, LUNCH text NOT NULL, DINNER text NOT NULL, BRUNCH text NOT NULL, HAPPYHOUR text NOT NULL , PRIMARY KEY(id))';
   psqlClient.query(schemaGeneration)
-    .then(res => console.log('copying csv files into post gres'))
+    .then(res => console.log('connected to post gres'))
     .catch(e => console.log(e.stack))
 });
  exports.postgres = {

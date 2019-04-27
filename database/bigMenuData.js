@@ -6,9 +6,9 @@ var counter = 1;
 var nObjects = function(count) {
 var sample = '';
   for (var i=0; i< count  ;  i++ ) {
-    sample +=`{""itemName"":""${sim.word[count ]}"", ""itemDescription"":""${sim.paragraph[count ]}"", ""itemPrice"":""$${sim.price[count]}""}` +  `${ i+1==count? '' : ','}`;
+    sample +=`{""itemName"":""${sim.word[ Math.ceil(Math.random()*5)  ]}"", ""itemDescription"":""${sim.paragraph[ Math.ceil(Math.random()*5)  ]}"", ""itemPrice"":""$${sim.price[ Math.ceil(Math.random()*5) ]}""}` +  `${ i+1==count? '' : ','}`;
   }
-  return `"'[${sample}]'"`
+  return `"[${sample}]"`
 };
 
 var generateMenuObject_100000_helper = function() {
@@ -56,5 +56,7 @@ var build =  function ( count=0 ) {
 };
 
 
-// build();
+exports.generateCSV = {
+  build
+}
 
