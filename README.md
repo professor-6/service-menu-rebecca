@@ -8,6 +8,7 @@
 ## __Schema__:
 
 __Cassandra && PostgreSQL Tables:__
+
 | ID   | BREAKFAST| LUNCH| DINNER| BRUNCH | HAPPYHOUR|
 |:----:|:--------:|:----:|:-----:|:------:|:--------:|
 
