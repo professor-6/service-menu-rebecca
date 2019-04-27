@@ -1,37 +1,38 @@
 const fs = require('file-system');
 const path = require('path');
 const sim  = require('./pre-process-faker').fakerBuild();
-var counter = 0;
+var counter = 1;
+
+var nObjects = function(count) {
+var sample = '';
+  for (var i=0; i< count  ;  i++ ) {
+    sample +=`{""itemName"":""${sim.word[ Math.ceil(Math.random()*5)  ]}"", ""itemDescription"":""${sim.paragraph[ Math.ceil(Math.random()*5)  ]}"", ""itemPrice"":""$${sim.price[ Math.ceil(Math.random()*5) ]}""}` +  `${ i+1==count? '' : ','}`;
+  }
+  return `"[${sample}]"`
+};
 
 var generateMenuObject_100000_helper = function() {
-  var result = {};
-  var idx0 = Math.floor(Math.random()*5) ;
-  var idx1 =  idx0 + 1;
-  var idx2 =  idx1 + 1;
-  var idx3 =  idx2 + 1;
-  var idx4 =  idx3 + 1;
-  result['0'] = sim.word[idx0] +'-link-'  + sim.paragraph[idx0]+'-link-'+ sim.price[idx0]
-  result['1'] = sim.word[idx1] +'-link-'  + sim.paragraph[idx1]+'-link-'+ sim.price[idx1]
-  result['2'] =  sim.word[idx2] +'-link-'  + sim.paragraph[idx2]+'-link-'+ sim.price[idx2]
-  result['3'] = sim.word[idx3] +'-link-'  + sim.paragraph[idx3]+'-link-'+ sim.price[idx3]
-  result['4'] = sim.word[idx4] +'-link-'  + sim.paragraph[idx4]+'-link-'+ sim.price[idx4]
-  return counter++ + ',' + result[0] + ',' + result[1]  +', '+ result[2] + ','  + result[3] + ','  + result[4] + '\n';
+  var stringBuffer = '';
+    stringBuffer+= counter++ + ',' +  nObjects( Math.ceil(Math.random()*5) ) + ',' +  nObjects( Math.ceil(Math.random()*5) ) +','+  nObjects( Math.ceil(Math.random()*5) )+ ','  +  nObjects( Math.ceil(Math.random()*5) ) + ','  +  nObjects( Math.ceil(Math.random()*5) )+ '\n';
+  return stringBuffer;
 };
 
 var generateMenuObject_100000 = function(max, file, callback) {
+  var buffer= '';
+  fs.appendFileSync (file, "id,BREAKFAST, LUNCH, DINNER, BRUNCH, HAPPYHOUR\n", {option:{flags:'a+'}})
   for (var r = 0; r <= max; r++) {
     var result = generateMenuObject_100000_helper() ;
-    if(r==0) {
-      fs.appendFileSync (file, "id, BREAKFAST, LUNCH, DINNER, BRUNCH, HAPPYHOUR\n", {option:{flags:'a+'}})
-    }else {
-      fs.appendFileSync(file, result, {option:{flags:'a+'}})
+    buffer += result;
+    if( r%25000 ===0) {
+      fs.appendFileSync(file, buffer, {option:{flags:'a+'}})
+      buffer='';
     }
   }
   callback(true);
 };
 
 var generateBlock = function ( records,fileNumber, callback) {
-  var file = path.resolve('test2' , 'data' + fileNumber + '.csv' );
+  var file = path.resolve('TESTDATA' , 'data' + fileNumber + '.csv' );
   generateMenuObject_100000(records, file, (res)=>{
     callback(res);
   });
@@ -49,11 +50,13 @@ var build =  function ( count=0 ) {
 
   generateBlock(records,count, (bool )=>{
     if (bool) {
-      setTimeout(build, 2700, ++count)
+      build(++count);
     }
   });
 };
 
 
-// build();
+exports.generateCSV = {
+  build
+}
 
