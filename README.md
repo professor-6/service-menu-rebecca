@@ -13,12 +13,13 @@ __Cassandra && PostgreSQL Tables:__
 
 
 ##__Restful Service API__:
-| Request | Endpoint | Description | request.body |
-|:-------:|:-----------|:------------:|:--------------:|
-| GET | /menu/:Id | Fetch  menu(s) from database |  |
-| POST | /addMenu/:Id | Add new menu to database and set entry | { "menu" : "Desserts" , "data": { "itemName": "dofy" , "itemDescription":"nfw wjw" , "Price":"$20"} }'   |
-| PUT | /updateMenu/:Id |  updates meal record in database  | {  "index" : 3 ,  "menu" : "Breakfast"    ,  "data": {"itemName": "pizza" , "itemDescription": "house pzza with pepperoni,tomato, anchovies and cheese" , "itemPrice": "$9999999"   }   }'|
-| DELETE | /menus/deleteMenu:Id | remove meal record from database |  { "index":2 ,"menu" : "breakfast"}' |
+| Request | Endpoint             | Description                            | request.body                                                                                                                                                                                                    |
+|:-------:|:--------------------:|:--------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| GET     | /menu/:Id            | Fetch  menu(s) from database           |                                                                                                                                                                                                                 |
+| POST    | /addMenu/:Id         | Add new menu to database and set entry | { "menu" : "Desserts" , "data": { "itemName": "dofy" , "itemDescription":"nfw wjw" , "Price":"$20"} }'                                                                                                          |
+| PUT     | /updateMenu/:Id      |  updates meal record in database       | {  "index" : 3 ,  "menu" : "Breakfast"    ,  "data": {"itemName": "pizza" , "itemDescription": "house pzza with pepperoni,tomato, anchovies and cheese" , "itemPrice": "$9999999"   }   }'                      |
+| DELETE  | /menus/deleteMenu:Id | remove meal record from database       |  { "index":2 ,"menu" : "breakfast"}' |
+
 `NOTE:  All  entries in database store a collection`
 `index key - location in array`
 `menu key - column name`
