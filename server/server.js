@@ -1,17 +1,11 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const jsonParse = bodyParser.json();
 const cors = require("cors");
 const path = require("path");
 const port = process.env.PORT || 3004;
 const db = require("../database/index.js");
 const {postgres} = require('../database/bigMenuData-database-pg.js');
-// const {cassandra} = require('../database/bigMenuData-database-cass.js');
-const seedGen =  require('../database/bigMenuData.js');
-const Menu = require("../database/schema.js");
-const fs = require('fs');
-const file = `/Users/hectron/Documents/2019/HackReactor/Immersive/CapStone/SDC/service-menu-rebecca/debugFIle.txt`;
 
 app.use(cors());
 app.use(function(req, res, next) {
@@ -39,6 +33,29 @@ app.get("/menus/:Id", (req, res) => {
   .catch(err => res.status(500).send(err) );
 });
 
+app.put("/updateMenu/:Id", (req, res)=>{
+  var currTime = Date.now();
+  postgres.ops.update(req.params.Id, req.body)
+  .then( () => {res.status(201).end(), console.log( 'UPDATE Execution Time ' +  (Date.now() - currTime) + ' ms' ) } )
+  .catch( () =>  res.status(500).end());
+});
+
+
+app.delete("/deleteMenu/:Id", (req, res) => {
+  var currTime = Date.now();
+  postgres.ops.delete(req.params.Id, req.body)
+  .then( () => {res.status(201).end(), console.log( 'DELETE Execution Time ' +  (Date.now() - currTime) + ' ms' ) } )
+  .catch(res.status(500).end());
+});
+
+app.post("/addMenu/:Id", (req, res) => {
+  var currTime = Date.now();
+  postgres.ops.post(req.params.Id, req.body)
+  .then( () => {res.status(201).end(), console.log( ' CREATE Execution Time ' +  (Date.now() - currTime) + ' ms' ) } )
+  .catch( () => res.status(500).end() )
+});
+
+
 app.get("/:Id", (req, res) => {
   res.sendFile(path.join(__dirname, "/../public/index.html"));
 });
@@ -46,8 +63,3 @@ app.get("/:Id", (req, res) => {
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
-
-
-
-
-

@@ -61,16 +61,64 @@ psqlCommands.prototype.format = function(collection) {
 };
 
 
-
-var ops = new psqlCommands();
-exports.postgres = {
-  ops
+psqlCommands.prototype.update = function(rowKey, requestBody) {
+  var arrayData;
+  var jsonParsedData ;
+  var stringified ;
+  var columnlName = requestBody.menu.toLowerCase();
+  return new Promise((resolve, reject)=>{
+    postgres.psqlClient.query(`SELECT ${columnlName} FROM menu_selection WHERE id = ${rowKey}`)
+    .then ( dbData => {
+      arrayData = (dbData.rows[0][columnlName]);    // --> stringified data
+      jsonParsedData = JSON.parse( arrayData);   // --> convert to primitive
+      jsonParsedData[requestBody.index] = requestBody.data;
+      stringified = JSON.stringify(jsonParsedData); // --> convert to stringified
+      postgres.psqlClient.query(`UPDATE menu_selection SET  ${  requestBody.menu.toLowerCase()}  = '${stringified}' WHERE id = ${rowKey}`)
+      .then( () =>  console.log('update complete') )
+      .catch( () => console.log('error updating database'))
+    })
+    resolve('update successful')
+    .catch(reject('error updating database'));
+  });
 };
+
+
+psqlCommands.prototype.delete = function(rowKey, requestBody) {
+  var jsonParsed;
+  var stringified;
+  var columnlName = requestBody.menu.toLowerCase();
+  return new Promise((resolve, reject) => {
+    postgres.psqlClient.query(`SELECT ${columnlName} FROM menu_selection WHERE id = ${rowKey}`)
+    .then(dbData => {
+      jsonParsed = JSON.parse(dbData.rows[0][columnlName]);
+      jsonParsed=  jsonParsed.slice(0, requestBody.index ).concat( jsonParsed.slice(requestBody.index+1));
+      stringified = JSON.stringify(jsonParsed);
+      postgres.psqlClient.query(` UPDATE menu_selection SET ${requestBody.menu} = '${stringified}'  WHERE id = ${rowKey}`)
+      .then( ()=> console.log( 'deletion successful'))
+      .catch('error updating database');
+    })
+    resolve('delete successful')
+    .catch(reject('error updating database'));
+  });
+};
+
+
+psqlCommands.prototype.post = function( rowKey , requestBody) {
+  var json = JSON.stringify ([requestBody.data]);
+  return new Promise( (resolve, reject) => {
+    postgres.psqlClient.query(`ALTER TABLE menu_selection ADD COLUMN  IF NOT EXISTS ${requestBody.menu} text  DEFAULT  '[]' ;  UPDATE menu_selection SET ${requestBody.menu} = '${json}'  WHERE id = ${rowKey}`)
+    .then (  resolve( `${requestBody.menu} column created with new item`))
+    .catch( reject('error creating new table'));
+  })
+};
+
 
 
 /* helpers */
 function menuObject(obj) {
   var result= {};
+  console.log(obj.id)
+  result._id = JSON.parse( obj.id);
   result.Breakfast =  JSON.parse( obj.breakfast);
   result.Lunch = JSON.parse(obj.lunch);
   result.Dinner =  JSON.parse (obj.dinner);
@@ -92,6 +140,8 @@ function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-
+};
+var ops = new psqlCommands();
+exports.postgres = {
+  ops
+};
