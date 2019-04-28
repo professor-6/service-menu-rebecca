@@ -1,4 +1,4 @@
-const fs = require('file-system');
+const fs = require('fs');
 const path = require('path');
 const sim  = require('./pre-process-faker').fakerBuild();
 var counter = 1;
@@ -44,8 +44,8 @@ var build =  function ( count=0 ) {
   console.log('LOG: current count', count);
 
   if(count === dirLimit) {
-    console.log('LOG: -->  COMPLETE')
-    return ;
+    console.log('LOG: -->  COMPLETE');
+    process.exit();
   }
 
   generateBlock(records,count, (bool )=>{

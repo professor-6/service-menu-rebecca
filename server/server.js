@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -21,7 +22,7 @@ app.use(express.static(path.join(__dirname, "/../public/")));
 app.get("/menus", function(req, res) {
   postgres.ops.fetchRecordOrigin()
   .then( dbDataRcvd => postgres.ops.format(dbDataRcvd) )
-  .then( parseData => res.send(parseData))
+  .then( parseData =>  { res.send(parseData) })
   .catch( err => res.status(500).send(err))
   });
 
@@ -29,32 +30,28 @@ app.get("/menus", function(req, res) {
 app.get("/menus/:Id", (req, res) => {
   postgres.ops.fetchRecord(req.params.Id)
   .then(dbDataRcvd => postgres.ops.format(dbDataRcvd))
-  .then( parseData => res.send(parseData))
+  .then( parseData =>  res.send(parseData) )
   .catch(err => res.status(500).send(err) );
 });
 
 app.put("/updateMenu/:Id", (req, res)=>{
-  var currTime = Date.now();
   postgres.ops.update(req.params.Id, req.body)
-  .then( () => {res.status(201).end(), console.log( 'UPDATE Execution Time ' +  (Date.now() - currTime) + ' ms' ) } )
+  .then( () => {res.status(201).end() } )
   .catch( () =>  res.status(500).end());
 });
 
 
 app.delete("/deleteMenu/:Id", (req, res) => {
-  var currTime = Date.now();
   postgres.ops.delete(req.params.Id, req.body)
-  .then( () => {res.status(201).end(), console.log( 'DELETE Execution Time ' +  (Date.now() - currTime) + ' ms' ) } )
+  .then( () => {res.status(201).end() } )
   .catch(res.status(500).end());
 });
 
 app.post("/addMenu/:Id", (req, res) => {
-  var currTime = Date.now();
   postgres.ops.post(req.params.Id, req.body)
-  .then( () => {res.status(201).end(), console.log( ' CREATE Execution Time ' +  (Date.now() - currTime) + ' ms' ) } )
+  .then( () => res.status(201).end()   )
   .catch( () => res.status(500).end() )
 });
-
 
 app.get("/:Id", (req, res) => {
   res.sendFile(path.join(__dirname, "/../public/index.html"));

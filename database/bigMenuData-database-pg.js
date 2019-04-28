@@ -117,7 +117,7 @@ psqlCommands.prototype.post = function( rowKey , requestBody) {
 /* helpers */
 function menuObject(obj) {
   var result= {};
-  console.log(obj.id)
+  // console.log(obj.id)
   result._id = JSON.parse( obj.id);
   result.Breakfast =  JSON.parse( obj.breakfast);
   result.Lunch = JSON.parse(obj.lunch);

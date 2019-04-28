@@ -3,6 +3,7 @@ node_modules
 bundle.js
 /test
 /test2
-/TESTDATA
+TESTDATA/d*
 import_sdc_menu*
 database/Queries
+config.js
