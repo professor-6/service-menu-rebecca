@@ -21,13 +21,13 @@ class Menu extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:3004/menus/${this.state.UrlId}`).then(res => {
+    axios.get(  window.location.origin +  `/menus/${this.state.UrlId}`).then(res => {
       this.setState({ menu: res.data[0].Breakfast });
     });
   }
 
   getMenus(menutype) {
-    axios.get(`http://localhost:3004/menus/${this.state.UrlId}`).then(res => {
+    axios.get( window.location.origin + `/menus/${this.state.UrlId}`).then(res => {
       this.setState({ menu: res.data[0][menutype] });
     });
   }

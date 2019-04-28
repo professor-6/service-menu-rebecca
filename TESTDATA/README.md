@@ -1,1 +1,2 @@
-Store csv data..do not delete TESTDATA directory!
+DONT DELETE TESTDATA DIRECTORY!
+Directory is used during data generation
