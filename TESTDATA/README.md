@@ -1,4 +1,1 @@
-# Description
-Directory TESTDATA stores simulation of csv files
-
-
+Store csv data..do not delete TESTDATA directory!
