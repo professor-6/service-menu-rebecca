@@ -1,6 +1,14 @@
 
 # __CRUD API__
 
+## Postgres Install(in Terminal)
+brew update
+brew install postgresql
+
+## Postgres Commands(in Terminal)
+  pg_ctl -D /usr/local/var/postgres/ start  : start database
+  pg_ctl -D /usr/local/var/postgres/ stop   : stop database
+  createdb test  : create database called test
 
 ## Data Simulation Generation & Database Load Script Commands
   npm run csv-load  : generates 10 million records to directory named TESTDATA

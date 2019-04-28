@@ -9,8 +9,7 @@
     "build": "webpack -d --watch",
     "build-mode": "webpack --mode production",
     "postgres-load": "node database/sdc-scripts.js 2",
-    "csv-gen": "node database/sdc-scripts.js 1",
-
+    "csv-load": "node --max-old-space-size=16384  database/sdc-scripts.js 1",
     "test": "jest"
   },
   "author": "rebecca",
@@ -25,9 +24,12 @@
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "fast-csv": "^2.5.0",
+    "fs": "0.0.1-security",
     "identity-obj-proxy": "^3.0.0",
     "mongoose": "^5.4.20",
+    "newrelic": "^5.7.0",
     "nodemon": "^1.18.10",
+    "pg": "^7.10.0",
     "promise": "^8.0.3",
     "react": "^16.8.6",
     "react-collapse": "^4.0.3",
