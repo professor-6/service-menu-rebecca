@@ -19,15 +19,14 @@ class Menu extends Component {
   toggle() {
     this.setState(state => ({ collapse: !state.collapse }));
   }
-
   componentDidMount() {
-    axios.get(  window.location.origin +  `/menus/${this.state.UrlId}`).then(res => {
+    axios.get(    'http://localhost:3004'+  `/menus/${this.state.UrlId}`).then(res => {
       this.setState({ menu: res.data[0].Breakfast });
     });
   }
 
   getMenus(menutype) {
-    axios.get( window.location.origin + `/menus/${this.state.UrlId}`).then(res => {
+    axios.get('http://localhost:3004'+ `/menus/${this.state.UrlId}`).then(res => {
       this.setState({ menu: res.data[0][menutype] });
     });
   }
