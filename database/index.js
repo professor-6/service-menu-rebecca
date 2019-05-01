@@ -4,14 +4,9 @@ const { Client } = require('pg');
 const psqlClient = new Client({
   database: 'test',
 });
-psqlClient.connect((err, msg)=>{
-  const schemaGeneration = ''+
-  'CREATE TABLE IF NOT EXISTS' + ' ' +
-  'menu_selection( id int  NOT NULL, BREAKFAST text NOT NULL, LUNCH text NOT NULL, DINNER text NOT NULL, BRUNCH text NOT NULL, HAPPYHOUR text NOT NULL , PRIMARY KEY(id))';
-  psqlClient.query(schemaGeneration)
+psqlClient.connect()
     .then(res => console.log('connected to post gres'))
-    .catch(e => console.log(e.stack))
-});
+    .catch(e => console.log(e.stack));
  exports.postgres = {
    psqlClient
  }
